@@ -99,13 +99,15 @@ There are many ways to programmatically read data formatted in this manner into 
 
 You'll be responsible for persisting any changes you make to the data (i.e., if a user adds or removes a word). Any library that can read JSON data will almost certainly be able to write it, too.
 
+If you've never used the Gson library (which you probably haven't), [take a look at this tutorial](http://tutorials.jenkov.com/java-json/gson.html). If you're unfamiliar with JSON in general, you can [check out this tutorial](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON).
+
 ## Deadline
 
 Please read very carefully. Historically, most students lose points on problem sets for simply failing to read the instructions and requirements.
 
-* February 23, 2020, at 11:59pm.
+* March 1, 2020, at 11:59pm.
 
-If you submit your problem set at midnight (i.e., February 24, 2020, at 12:00am), it is considered **late**!
+If you submit your problem set at midnight (i.e., March 2, 2020, at 12:00am), it is considered **late**!
 
 ### Submission Requirements
 
