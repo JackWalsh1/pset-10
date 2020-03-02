@@ -10,12 +10,24 @@ import com.google.gson.Gson;
 
 public class Word {
 	String word;
-	Definition[] definition;
+	Definition[] definitions;
 	String[] synonyms;
 	String[] antonyms;
 	
 	public String getWord() {
 		return word;
+	}
+	
+	public Definition[] getDefinitions() {
+		return definitions;
+	}
+	
+	public String[] getSynonyms() {
+		return synonyms;
+	}
+	
+	public String[] getAntonyms() {
+		return antonyms;
 	}
 }
 
