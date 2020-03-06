@@ -3,8 +3,10 @@ package application;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -14,6 +16,7 @@ import utilities.Word;
 public class Application {
 	public static void main(String args[]) {
 		getWords();
+		addWordsToList();
 	}
 	
 	public static void getWords() {
@@ -28,7 +31,6 @@ public class Application {
 			for (Word word : words) {
 				System.out.println(word.getWord());
 			}
-			
 		} catch (FileNotFoundException e) {
 			System.out.print("File not found. Closing...");
 			e.printStackTrace();
@@ -41,6 +43,19 @@ public class Application {
 	private static Word[] sortWords(Word[] words) {
 		Arrays.sort(words, (a,b) -> a.getWord().compareTo(b.getWord()));
 		return words;
+	}
+	
+	public static void addWordsToList() {
+		System.out.print("Go away Emily");
+	}
+	
+	public static void saveWords(Word[] words) {
+        Gson gson = new Gson();
+        try (Writer writer = new FileWriter(System.getProperty("user.dir") + File.separator + "words.json")) {
+            gson.toJson(words, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 }
 
