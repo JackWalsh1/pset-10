@@ -1,0 +1,155 @@
+	/*constant features
+	 * Add / Remove Buttons
+	 * Search Bar
+	 * Asc / Desc buttons for word sorting (only one clicked at a time)
+	 * Word Box on Side
+	 * Scroll Bar
+	 * Display box on right side (info changes) (Main panel)
+	 */
+	
+	/*dynamic features
+	 * Word Definitions / Antonyms / PoS / Synonyms
+	 * Placeholder Messages for No / > 1 Word Selected
+	 * Add word screen to main panel
+	 * Dialog Box for Removing Words (JOptionPane)
+	 * 
+	 */
+	 
+	 Selecting a Word:
+	 - Must select word on side
+	 	- If multiple / none selected, then display appropriate message
+	 		- None: only possible after opening for first time / deleting / adding words
+	 		- Multiple: only possible after selecting multiple words
+	 - Need to display 5 different types of fields
+	 - Word
+	 	- Single Field
+	 	- Just Word on Top
+	 	- Ex: "word": "scatter" -> Scatter
+	 - Definition
+	 	- Iterates through each definition
+	 	- Numbered list
+	 	- Line break between each definition
+	 	- Format: Word(partOfSpeech), new line with indent, definition
+	 	- Ex:
+	    "definitions": [
+	      {
+	        "definition": "strew or distribute over an area",
+	        "partOfSpeech": "verb"
+	      },
+	      {
+	        "definition": "the act of scattering",
+	        "partOfSpeech": "noun"
+	      },
+	      {
+	        "definition": "move away from each other",
+	        "partOfSpeech": "verb"
+	      },
+	      {
+	        "definition": "to cause to separate and go in different directions",
+	        "partOfSpeech": "verb"
+	      },
+	      {
+	        "definition": "a haphazard distribution in all directions",
+	        "partOfSpeech": "noun"
+	      },
+	      {
+	        "definition": "cause to separate",
+	        "partOfSpeech": "verb"
+	      },
+	      {
+	        "definition": "distribute loosely",
+	        "partOfSpeech": "verb"
+	      },
+	      {
+	        "definition": "sow by scattering",
+	        "partOfSpeech": "verb"
+	      }
+	    ],
+	    
+	    ->
+	    
+	    Definitions
+	    
+	    	1. Scatter (verb)
+	    		Strew or distribute over an area
+	    		
+	    	2. Scatter (noun)
+	    		The act of scattering
+	    		
+	    	3. Scatter (verb)
+	    		Move away from each other
+	    		
+	    	4. Scatter (verb)
+	    		To cause to separate and go in different directions
+	    	
+	    	5. Scatter (noun)
+	    		A haphazard distribution in all directions
+	    	
+	    	6. Scatter (verb)
+	    		Cause to separate
+	    	
+	    	7. Scatter (verb)
+	    		Distribute loosely
+	    	
+	    	8. Scatter (verb)
+	    		Sow by scattering
+	    		
+	   - Synonyms / Antonyms
+	   	- Numbered list of synonyms, followed by list of antonyms
+	   	-Ex:
+		  "synonyms": [
+	      "spread",
+	      "spread out",
+	      "scattering",
+	      "strewing",
+	      "disperse",
+	      "dissipate",
+	      "break up",
+	      "dispel",
+	      "dot",
+	      "dust",
+	      "sprinkle"
+	    ],
+	    
+	    "antonyms": []
+	    
+	    ->
+	    
+	    Synonyms
+	    	1. Spread
+	    	2. Spread out
+	    	3. Scattering
+	    	4. Strewing
+	    	5. Disperse
+	    	6. Dissipate
+	    	7. Break up
+	    	8. Dispel
+	    	9. Dot
+	    	10. Dust
+	    	11. Sprinkle
+	    	
+	    Antonyms:
+	    	EITHER
+	    	State "None found"
+	    	OR
+	    	Don't display
+	    	
+	Adding / Removing Words:
+		- Adding Words
+			- Button on left side, available at any time.
+			- If clicked on, opens form to be filled out to input
+				- Word
+				- Defintions
+				- PoS
+				- Synonyms
+				- Antonyms
+			- Must enter
+				- Word
+				- One definition (with PoS)
+				
+		- Removing Words
+			- Button of left side, available at any time
+			- Must have highlighted words below.
+				
+		
+	 
