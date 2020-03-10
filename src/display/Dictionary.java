@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.EventQueue;
 import javax.swing.*;
-import javax.swing.JFrame;
 import utilities.Word;
 
 @SuppressWarnings("serial")
@@ -14,6 +13,7 @@ public class Dictionary extends Frame implements ActionListener {
 	private Application app;
 	private JFrame frame;
 	private Word[] words;
+	private JList<String> scrollWords;
 	
 	public Dictionary() {
 		app = new Application();
@@ -23,19 +23,34 @@ public class Dictionary extends Frame implements ActionListener {
 	
 	public void initialize() {
 		frame = new JFrame();
+		//Toolbar toolbar = new Toolbar(words);
+		
+		DefaultListModel<String> wordList;
+		wordList = new DefaultListModel<>();
 		
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         frame.setSize(screenSize.width/2, screenSize.height/2);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        frame.setLayout(null);
+        frame.setLayout(new BorderLayout());
 		frame.setTitle("Jack's Dictionary");
 		
 		for (int i = 0; i < words.length; i++) {
-            JButton button = new JButton();
-            button.setText(words[i].getWord());
-            button.setBounds(100, ((50*i) + 10), 100, 40);  
-            frame.add(button);
+//          JButton button = new JButton();
+//          button.setText(words[i].getWord());
+//          button.setBounds(100, ((50*i) + 10), 100, 40);  
+//          frame.add(button);            
+          wordList.addElement(words[i].getWord());
+          System.out.println(wordList);
 		}	
+		
+		//frame.add(toolbar, BorderLayout.WEST);
+		
+		scrollWords = new JList<>();
+		scrollWords.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		scrollWords.setLayoutOrientation(JList.VERTICAL);
+		scrollWords.setVisibleRowCount(-1);
+		scrollWords.setModel(wordList);
+		frame.add(scrollWords);
 
 	}
 
