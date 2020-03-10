@@ -45,12 +45,15 @@ public class Dictionary extends Frame implements ActionListener {
 		
 		//frame.add(toolbar, BorderLayout.WEST);
 		
-		scrollWords = new JList<>();
-		scrollWords.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		scrollWords = new JList<>(wordList);
+		scrollWords.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		scrollWords.setLayoutOrientation(JList.VERTICAL);
 		scrollWords.setVisibleRowCount(-1);
-		scrollWords.setModel(wordList);
-		frame.add(scrollWords);
+
+		JScrollPane listScroller = new JScrollPane(scrollWords);
+		listScroller.setViewportView(scrollWords);
+		listScroller.setPreferredSize(new Dimension(80, 400));
+		frame.add(scrollWords, BorderLayout.WEST);
 
 	}
 
