@@ -14,12 +14,11 @@ import com.google.gson.Gson;
 import utilities.Word;
 
 public class Application {
-	public static void main(String args[]) {
+	private void app(String[] args) {
 		getWords();
-		addWordsToList();
 	}
 	
-	public static void getWords() {
+	public Word[] getWords() {
 		Gson gson = new Gson();
 		
 		try (Reader reader = new FileReader(System.getProperty("user.dir") +
@@ -28,9 +27,7 @@ public class Application {
 			//Convert from JSon to Java Object
 			Word[] words = gson.fromJson(reader, Word[].class);
 			sortWords(words);
-			for (Word word : words) {
-				System.out.println(word.getWord());
-			}
+			return words;
 		} catch (FileNotFoundException e) {
 			System.out.print("File not found. Closing...");
 			e.printStackTrace();
@@ -38,6 +35,7 @@ public class Application {
 			System.out.print("IOException");
 			e.printStackTrace();
 		}
+		return null;
 	}
 	
 	private static Word[] sortWords(Word[] words) {
