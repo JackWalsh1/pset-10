@@ -34,13 +34,8 @@ public class Dictionary extends Frame implements ActionListener {
         frame.setLayout(new BorderLayout());
 		frame.setTitle("Jack's Dictionary");
 		
-		for (int i = 0; i < words.length; i++) {
-//          JButton button = new JButton();
-//          button.setText(words[i].getWord());
-//          button.setBounds(100, ((50*i) + 10), 100, 40);  
-//          frame.add(button);            
+		for (int i = 0; i < words.length; i++) {          
           wordList.addElement(words[i].getWord());
-          System.out.println(wordList);
 		}	
 		
 		//frame.add(toolbar, BorderLayout.WEST);
@@ -49,11 +44,13 @@ public class Dictionary extends Frame implements ActionListener {
 		scrollWords.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		scrollWords.setLayoutOrientation(JList.VERTICAL);
 		scrollWords.setVisibleRowCount(-1);
-
-		JScrollPane listScroller = new JScrollPane(scrollWords);
-		listScroller.setViewportView(scrollWords);
-		listScroller.setPreferredSize(new Dimension(80, 400));
-		frame.add(scrollWords, BorderLayout.WEST);
+		
+		JScrollPane scrollPane = new JScrollPane(scrollWords);
+		scrollPane.setViewportView(scrollWords);
+		scrollPane.setPreferredSize(new Dimension(200, screenSize.height / 2));
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		//adds scrollWords + scrollPane
+		frame.add(scrollPane, BorderLayout.WEST);
 
 	}
 
