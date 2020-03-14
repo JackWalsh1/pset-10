@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.WindowConstants;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Color;
@@ -26,7 +28,9 @@ public class MainDisplay {
 	private JFrame frame;
 	private Word[] words;
 	private SearchPanel searchPanel;
-	private JPanel sidePanel;
+	private JPanel toolbar;
+	private InformationWindow informationWindow;
+	private JPanel wordDisplay;
 
 	/**
 	 * Launch the application.
@@ -56,23 +60,29 @@ public class MainDisplay {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	JList<String> scrollWords;
-	private JPanel toolbar;
+
 	
 	private void initialize() {
 		frame = new JFrame();
-		searchPanel = new SearchPanel();
-		sidePanel = new JPanel();
-		
 		frame.setLayout(new BorderLayout());
 		
-		toolbar = searchPanel.createPanel(words);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
-		frame.add(toolbar, BorderLayout.WEST);
+		searchPanel = new SearchPanel();
+		informationWindow = new InformationWindow();
 		
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        System.out.print(screenSize);
+        
         frame.setSize(screenSize.width/2, screenSize.height/2);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setTitle("Jack's Dictionary");
+		
+		toolbar = searchPanel.createPanel(words);	
+		frame.add(toolbar, BorderLayout.WEST);
+		
+		wordDisplay = informationWindow.createPanel();
+		frame.add(wordDisplay, BorderLayout.CENTER);
+		
+		frame.pack();
 	}
 }

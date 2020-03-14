@@ -32,6 +32,7 @@ public class SearchPanel implements ActionListener {
         
         gbc.fill = GridBagConstraints.HORIZONTAL;
         
+        
         //Add & Delete buttons
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -55,7 +56,7 @@ public class SearchPanel implements ActionListener {
         toolbar.add(ascButton, gbc);
         
         JRadioButton descButton = new JRadioButton("Desc", false);
-        gbc.gridx = 2;
+        gbc.gridx = 1;
         gbc.gridy = 2;
         toolbar.add(descButton, gbc);
 		
